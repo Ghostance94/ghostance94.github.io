@@ -225,15 +225,14 @@
 .flippi-180.aktivoitu .kortti-runko { transform: rotateY(180deg); }
 
         
-.flippi-360 .kortti-teksti { 
-  transform: rotateY(180deg); 
-  backface-visibility: hidden;
-}
-/* Muuta tämä arvo 360deg -> 180deg */
-.flippi-360 .kortti-teksti {
-    transform: rotateY(180deg);
+.kortti-tausta {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
+
 
 /* Tässä varmistetaan että runko pyörähtää 180 astetta, kun JavaScript iskee .aktivoitu-luokan */
 .flippi-360.aktivoitu .kortti-runko {
@@ -346,14 +345,17 @@ System ready for input. Ready to intercept query.</div>
                 <img src="img4.jpg" alt="Chapter IV">               
                 <span>CHAPTER IV // 75 SECRETS RECEIPE</span>
             </div>
-            <div class="arg-kortti flippi-360" onclick="pyorayta360Kortti(this)
+            <div class="arg-kortti flippi-360" onclick="pyorahdytakortti(this)">
     <div class="kortti-runko">
+        <!-- Kortin etupuoli -->
         <div class="kortti-kuva">
             <img src="img5.jpg" alt="Choices">
-            <div class="kortti-otsikko">Chapter 5 // TIME TRAVEL</div>
+            <div class="kortti-otsikko">CHAPTER V // TIME TRAVEL</div>
         </div>
-        <div class="kortti-teksti punainen-teema">
-            <p>3. I want you to know that I didn't come to the internet looking for some empty-headed blonde or superficial beauty. I came to find a real spouse, an equal mind, and my best friend - someone that my soul sings in tune, head reaches the frequency and heart beats in unison. That is why your sharp intelligence and pragmatic pride on Saturday completely melted my heart. That was the last emotional rollercoaster before the explosion, despite what I know.</p>
+        <!-- Kortin takapuoli (teksti) -->
+        <div class="kortti-tausta">
+          
+           <p>3. I want you to know that I didn't come to the internet looking for some empty-headed blonde or superficial beauty. I came to find a real spouse, an equal mind, and my best friend - someone that my soul sings in tune, head reaches the frequency and heart beats in unison. That is why your sharp intelligence and pragmatic pride on Saturday completely melted my heart. That was the last emotional rollercoaster before the explosion, despite what I know.</p>
         </div>
     </div>
 </div>
@@ -642,6 +644,10 @@ canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeig
 }
 window.addEventListener('DOMContentLoaded', initMatrixScene);
 initMatrixScene();
+
+        function pyorahdytakortti(element) {
+    element.classList.toggle('aktivoitu');
+}
 
     </script>
 </body>
