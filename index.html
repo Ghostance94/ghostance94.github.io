@@ -230,13 +230,17 @@
   backface-visibility: hidden;
 }
 /* Muuta tämä arvo 360deg -> 180deg */
-.flippi-360.aktivoitu .kortti-runko { 
-  transform: rotateY(180deg); 
+.flippi-360 .kortti-teksti {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
-.flippi-360 .kortti-kuva { 
-  backface-visibility: hidden;
+/* Tässä varmistetaan että runko pyörähtää 180 astetta, kun JavaScript iskee .aktivoitu-luokan */
+.flippi-360.aktivoitu .kortti-runko {
+    transform: rotateY(180deg) !important;
 }
+
+
 /* Kun aktivoitu-luokka lähtee pois, pakotetaan kortti pyörähtämään 360 asteen kautta maaliin */
 .flippi-360:not(.aktivoitu) .kortti-runko {
   animation: rullaa-loppuun 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
