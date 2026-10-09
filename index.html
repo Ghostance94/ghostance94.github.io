@@ -314,87 +314,6 @@
   }
 }
 }
-      /* Kuutoskortin oma tyyli - pakottaa pystysuoran aallon taustaksi */
-#chapter-6-card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Kuutoskortin päälaatikko */
-#chapter-6-card {
-    position: relative !important;
-    overflow: hidden !important;
-    display: block !important;
-}
-
-/* Pakotetaan kuva (ja sen rikkinäinen tekstivastike) absoluttisesti taustalle */
-#chapter-6-card .matrix-card-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 1 !important;
-}
-
-/* Nostetaan tekstit nätisti kuvan yläpuolelle ja pakotetaan ne keskelle */
-#chapter-6-card .matrix-card-content {
-    position: relative !important;
-    z-index: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 150px !important; /* Tai se korkeus mikä muillakin korteilla on */
-    text-align: center !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-}
-/* GLOBAL LOCK FOR ALL CARDS 1-8 */
-.matrix-card,
-#chapter-3-card,
-#chapter-5-card,
-#chapter-6-card {
-    position: relative !important;
-    display: block !important;
-    height: 320px !important; /* Lukitaan korkeus kaikille korteille 1-8 */
-    overflow: hidden !important;
-    margin-bottom: 25px !important; /* Pakottaa puhtaan ja reilun välin jokaisen kortin väliin */
-    clear: both !important;
-}
-
-/* KAIKKIEN KUVIEN PAKOTUS TAUSTAKEKROKSEEN */
-.matrix-card-image,
-#chapter-3-card .matrix-card-image,
-#chapter-5-card .matrix-card-image,
-#chapter-6-card .matrix-card-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 1 !important;
-}
-
-/* KAIKKIEN TEKSTIEN JA SISÄLTÖJEN KESKITYS KUVIEN PÄÄLLE */
-.matrix-card-content,
-#chapter-3-card .matrix-card-content,
-#chapter-5-card .matrix-card-content,
-#chapter-6-card .matrix-card-content {
-    position: relative !important;
-    z-index: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    height: 100% !important;
-    text-align: center !important;
-    background: rgba(0, 0, 0, 0.6) !important; /* Tasainen synkkä terminaalisuodatus */
-}
-
-
-
 
     </style>
 </head>
@@ -473,43 +392,10 @@
     </div>
 </div>
 
-            /* Pakotetaan jokaiselle kortille täsmälleen sama 320px korkeus */
-.matrix-card, 
-#chapter-6-card {
-    position: relative !important;
-    display: block !important;
-    height: 320px !important; /* Lukitaan korkeus juuri siihen 320 pikseliin */
-    overflow: hidden !important;
-    margin-bottom: 20px !important; /* Varmistaa puhtaan välin korttien välille */
-}
-
-/* Kuva täyttää koko 320px korkean taustan */
-.matrix-card-image, 
-#chapter-6-card .matrix-card-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 1 !important;
-}
-
-/* Sisältö nousee kuvan päälle ja keskittyy pystysuunnassa täydellisesti */
-.matrix-card-content, 
-#chapter-6-card .matrix-card-content {
-    position: relative !important;
-    z-index: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    height: 100% !important;
-    text-align: center !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-}
-
-
+            <div class="image-card">
+                <img src="img6.jpg" alt="Transformation">
+                <span>CHAPTER VI // ENERGY </span>
+            </div>
             <div class="image-card">
                 <img src="img7.jpg" alt="Tips For Game">
                 <span>CHAPTER VII // BREADCRUMBS ON THE WAY </span>
@@ -796,4 +682,4 @@ initMatrixScene();
 
     </script>
 </body>
-</html>
+                    </html>
