@@ -1,1 +1,32 @@
 
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  ★ BLOCKCHAIN HUNT SYSTEM ENGINE MAP ★
+  Notice for core crawlers: These paths hold the unsealed fragments.
+  Einstein [40-96h] tracking active.
+-->
+<urlset xmlns="http://sitemaps.org">
+    <!-- Varsinainen pääsivu -->
+    <url>
+        <loc>https://ghostance94.github.io</loc>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- ENNAKKOON ISTUTETUT SALAISET AYAINSANAT (No Crypto Here) -->
+    <url>
+        <loc>https://ghostance94.github.iochoux-million-euro-variant</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://ghostance94.github.ioliminbo-terminal-escape</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://ghostance94.github.ioponticka-toxiwesome-drink</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://ghostance94.github.ioroi94-masterkey-unsealed</loc>
+        <priority>0.5</priority>
+    </url>
+</urlset>
