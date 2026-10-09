@@ -263,26 +263,38 @@
     color: #ff0000;
     border: 1px solid #ff0000;
     text-shadow: 0 0 5px #ff0000;
-/* Kaapataan Adsterran mainoselementit koodilla ja pakotetaan ne teemaan */
-.matrix-cpm-engine img, 
-.matrix-cpm-engine [class*="image"], 
+/* Pakotetaan mainossäiliö Matrix-tyyliin */
+.matrix-cpm-engine {
+    display: block !important;
+    position: relative !important;
+    background-color: #000000 !important;
+    border: 1px solid #00ff00 !important;
+    box-shadow: 0 0 8px #00ff00;
+    overflow: hidden !important;
+}
+
+/* KÄÄNTEINEN MASKI: Pakotetaan kuvat näkymättömiksi ilman display: nonea */
+.matrix-cpm-engine img,
+.matrix-cpm-engine [class*="image"],
 .matrix-cpm-engine [class*="avatar"] {
-    display: none !important; /* Tuhotaan kuvat kokonaan */
+    opacity: 0.01 !important; /* Jätetään lähes näkymättömäksi, jotta scripti luulee sen latautuneen */
+    position: absolute !important;
+    z-index: -1 !important; /* Työnnetään Matrix-taustan taakse piiloon */
+    width: 1px !important;  /* Pienennetään olemattomaksi */
+    height: 1px !important;
 }
-.matrix-cpm-engine, 
-.matrix-cpm-engine div, 
-.matrix-cpm-engine iframe {
-    background-color: #000000 !important; /* Pakotetaan musta tausta */
-    background: #000000 !important;
-}
-.matrix-cpm-engine a, 
-.matrix-cpm-engine span, 
-.matrix-cpm-engine p, 
-.matrix-cpm-engine div {
-    color: #00ff00 !important; /* Pakotetaan vihreä teksti */
+
+/* Pakotetaan iframe-sisältö ja kaikki tekstit vihreiksi */
+.matrix-cpm-engine div,
+.matrix-cpm-engine p,
+.matrix-cpm-engine span,
+.matrix-cpm-engine a {
+    color: #00ff00 !important;
     font-family: monospace !important;
     text-shadow: 0 0 5px #00ff00 !important;
+    background: transparent !important;
 }
+
     /* --- DESKTOP-KORJAUKSET ISOILLE RUUTUIHIN --- */
 @media (min-width: 768px) {
   /* Keskittää ja rajoittaa koko komentorivipäätteen leveyttä desktopilla */
