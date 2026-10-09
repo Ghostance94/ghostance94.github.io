@@ -263,25 +263,26 @@
     color: #ff0000;
     border: 1px solid #ff0000;
     text-shadow: 0 0 5px #ff0000;
-/* Pakotetaan mainossäiliö Matrix-tyyliin */
-.matrix-cpm-engine {
+}
+    .matrix-cpm-engine {
     display: block !important;
     position: relative !important;
     background-color: #000000 !important;
     border: 1px solid #00ff00 !important;
     box-shadow: 0 0 8px #00ff00;
     overflow: hidden !important;
+    min-height: 90px !important; /* Pakotetaan laatikolle tila, jossa tekstit voivat näkyä */
+    width: 100% !important;
 }
 
-/* KÄÄNTEINEN MASKI: Pakotetaan kuvat näkymättömiksi ilman display: nonea */
+
+/* KÄÄNTEINEN MASKI: Siirretään kuvat ruudun ulkopuolelle rikkomatta mainosscriptiä */
 .matrix-cpm-engine img,
 .matrix-cpm-engine [class*="image"],
 .matrix-cpm-engine [class*="avatar"] {
-    opacity: 0.01 !important; /* Jätetään lähes näkymättömäksi, jotta scripti luulee sen latautuneen */
     position: absolute !important;
-    z-index: -1 !important; /* Työnnetään Matrix-taustan taakse piiloon */
-    width: 1px !important;  /* Pienennetään olemattomaksi */
-    height: 1px !important;
+    left: -9999px !important; /* Työnnetään kuva kauas vasemmalle ruudun ulkopuolelle */
+    top: -9999px !important;
 }
 
 /* Pakotetaan iframe-sisältö ja kaikki tekstit vihreiksi */
