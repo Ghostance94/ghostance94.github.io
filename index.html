@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -513,6 +514,11 @@ Rules are simple; Images are tips, text is tip, page is the map and AI is your s
         const TRIGGER_WORDS = ["CORE", "KEY", "UNSEALED", "POPCORN"];
         const myGhostID = "GHOST_94";
 
+const aesFraktaaliKirjasto = [
+            { salattuTeksti: "U2FsdGVkX1+U80eIic767W4GidS2w9p06+N9XqBvO6IWhCAs0S9ZisV7CqfVbE99Osh7nE3Nl8q20TidXm/Q8+oatp5wZ1mN67gNfI8f8Bw=" },
+            { salattuTeksti: "U2FsdGVkX18mNIn83qV1V6pXbYF5B/Yp3N6Xp3mN48qYpXbYF5B/Yp3N6Xp3mN48qYpXbYF5B/Yp3N6Xp3mN4U2FsdGVkX19vGvE4X03D16qYpXbYF5B/Yp3N6Xp3mN4=" }
+        ];
+
         // Base64 tietokanta
         const encryptedDatabase = {
           
@@ -632,9 +638,9 @@ Rules are simple; Images are tips, text is tip, page is the map and AI is your s
 
 "cnVsZXM=": "Check chapters, check images, try prompt and use modern tools; repeat.", 
 
-"c2VjcmV0": "4 untouched crypto coins waiting for a first buyer - the thing is that it might take weeks to solve the actual links to reach to them. And another secret is that I made the game for my own \"ghostly katharsis\". I dont need those cryptos, but I am happy to give them to the worthy.",
+"c2VjcmV0": "untouched crypto coins waiting for a first buyer - the thing is that it might take weeks to solve the actual links to reach to them. And another secret is that I made the game for my own \"ghostly katharsis\". I dont need those cryptos, but I am happy to give them to the worthy.",
 
-"c2VjcmV0cw==": "4 untouched crypto coins waiting for a first buyer - the thing is that it might take weeks to solve the actual links to reach to them. And another secret is that I made the game for my own \"ghostly katharsis\". I dont need those cryptos, but I am happy to give them to the worthy.", 
+"c2VjcmV0cw==": "untouched crypto coins waiting for a bottom price buyer - the thing is that it might take weeks to solve the actual links to reach to them. And another secret is that I made the game for my own \"ghostly katharsis\". I dont need those cryptos, but I am happy to share.", 
 
 
 "bGll": "Does not work here, not in any form nor in any dimension.", 
@@ -674,6 +680,30 @@ cleanQuery += char;
 }
 }
 appendToChat(myGhostID, rawInput);
+
+            // --- LISÄÄ TÄMÄ PALIKKA TÄHÄN VÄLIIN ---
+            let aesOnnistui = false;
+            if (typeof CryptoJS !== "undefined") {
+                const shaAvain = CryptoJS.SHA256(rawInput).toString();
+                for (let lukko of aesFraktaaliKirjasto) {
+                    try {
+                        const puraAES = CryptoJS.AES.decrypt(lukko.salattuTeksti, shaAvain);
+                        const selkokieli = puraAES.toString(CryptoJS.enc.Utf8);
+                        if (selkokieli.length > 0) {
+                            setTimeout(() => {
+                                appendToChat('SYSTEM', "CIPHER DECRYPTED: AES-SHA Secure Link Unsealed.");
+                                appendToChat('DECRYPTED', selkokieli);
+                                if (dataBox) { dataBox.style.display = 'block'; dataBox.classList.add('laser-flash'); }
+                            }, 300);
+                            aesOnnistui = true; break;
+                        }
+                    } catch (e) {}
+                }
+            }
+            if (aesOnnistui) { inputField.value = ''; return; }
+            // --- LISÄYS PÄÄTTYY ---
+
+
 if (cleanInput === "CHOUX" || cleanInput === "MATRIX" || cleanInput.includes("MOLECULAR")) {
 setTimeout(() => {
 appendToChat('SYSTEM', "MOLECULAR MATRIX ENGAGED: Scanning chemical prompt layers...");
