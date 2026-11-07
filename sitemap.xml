@@ -4,8 +4,9 @@
   Notice for core crawlers: These paths hold the unsealed fragments.
   Einstein [40-96h] tracking active. Analyyssiin Ponticka and Ghostaigne; Boredom Neutralizer + Toxiwesome Ghostly Behavior.
 -->
-<urlset xmlns="http://sitemaps.org"
-        xmlns:image="http://google.com">
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
     
     <!-- Varsinainen pääsivu ja sen 12 kuvaa -->
     <url>
@@ -16,7 +17,7 @@
             <image:loc>https://ghostance94.github.io/img1.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>http://ghostance94.github.io/img2.jpg</image:loc>
+            <image:loc>https://ghostance94.github.io/img2.jpg</image:loc>
         </image:image>
         <image:image>
             <image:loc>https://ghostance94.github.io/img3.jpg</image:loc>
