@@ -1131,4 +1131,85 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.fillStyle = '#00FF00';
 ctx.font = fontSize + 'px monospace';
 for (let i = 0; i < rainDrops.length; i++) {
-const text = alphabet[Math.floor(Math.random() * al
+const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+rainDrops[i] = 0;
+}
+rainDrops[i]++;
+}
+// Kello
+  const now = Date.now();
+if(!localStorage.getItem('arg_looppi')){localStorage.setItem('arg_looppi', now)}
+let fixedStart = parseInt(localStorage.getItem('arg_looppi'));
+if((now - fixedStart) >= TOTAL_DURATION_MS){
+    fixedStart = now;
+    localStorage.setItem('arg_looppi', now);
+}
+const FIXED_START_TIME = fixedStart;
+const timeElapsed = now - FIXED_START_TIME;
+const currentLoopElapsed = timeElapsed % TOTAL_DURATION_MS;
+
+
+
+const timeRemainingMs = TOTAL_DURATION_MS - currentLoopElapsed;
+let displayString = "00:00:00";
+let progressRatio = 0;
+if (timeRemainingMs > 0) {
+progressRatio = timeRemainingMs / TOTAL_DURATION_MS;
+let totalSeconds = Math.floor(timeRemainingMs / 1000);
+let hours = Math.floor(totalSeconds / 3600);
+let minutes = Math.floor((totalSeconds % 3600) / 60);
+let seconds = totalSeconds % 60;
+hours = hours < 10 ? '0' + hours : hours;
+minutes = minutes < 10 ? '0' + minutes : minutes;
+seconds = seconds < 10 ? '0' + seconds : seconds;
+displayString = hours + ":" + minutes + ":" + seconds;
+}
+const timerDisplay = document.getElementById('timer-display');
+if (timerDisplay) {
+timerDisplay.innerText = displayString;
+}
+// 3. LOGARITMINEN SPIRAALI (Cyber-neonvihreä #39FF14)
+if (progressRatio > 0) {
+ctx.save();
+ctx.strokeStyle = '#39FF14';
+ctx.lineWidth = 2;
+ctx.shadowBlur = 15;
+ctx.shadowColor = '#39FF14';
+ctx.beginPath();
+let angle = 0;
+let a = 0.5 * progressRatio;
+let b = 0.15;
+for (let i = 0; i < 400; i++) {
+angle = i * 0.1 + rotationOffset;
+let r = a * Math.exp(b * (i * 0.1)) * (progressRatio * 1.5);
+let x = centerX + r * Math.cos(angle);
+let y = centerY + r * Math.sin(angle);
+if (i === 0) {
+ctx.moveTo(x, y);
+} else {
+ctx.lineTo(x, y);
+}
+}
+ctx.stroke();
+ctx.restore();
+rotationOffset += 0.03;
+}
+}
+setInterval(draw, 33);
+window.addEventListener('resize', () => {
+canvas.width = window.innerWidth;
+canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+});
+}
+window.addEventListener('DOMContentLoaded', initMatrixScene);
+initMatrixScene();
+
+        function pyorahdytakortti(element) {
+    element.classList.toggle('aktivoitu');
+}
+
+    </script>
+</body>
+                    </html>
